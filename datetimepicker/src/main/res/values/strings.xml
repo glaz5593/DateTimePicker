@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">DateTimePicker</string>
+
+    <string name = "setDay">Select day</string>
+    <string name = "setMonth">Select a month</string>
+    <string name = "setYear">Select Year</string>
+    <string name="setHour">Select Hour</string>
+    <string name="setMinute">Select Minute</string>
+
+    <string name="cancel">cancel</string>
+    <string name="save">save</string>
+    <string name="please_select_day">please select day</string>
+    <string name="please_select_month">please select month</string>
+    <string name="please_select_year">please select year</string>
+    <string name="please_select_hour">please select hour</string>
+    <string name="please_select_minute">please select minute</string>
+    <string name="wronge_date">wrong date</string>
+    <string name="unexeptedProplame">Unexepted proplame</string>
+    <string name="selectDateTime">select date and time</string>
+    <string name="selectTime">select time</string>
+    <string name="selectDate">select date</string>
+    <string name="year">year</string>
+    <string name="month">month</string>
+    <string name="day">day</string>
+    <string name="hour">hour</string>
+    <string name="minute">minute</string>
+
+    <string-array name="months">
+        <item>01 - January</item>
+        <item>02 - February</item>
+        <item>03 - March</item>
+        <item>04 - April</item>
+        <item>05 - May</item>
+        <item>06 - June</item>
+        <item>07 - July</item>
+        <item>08 - August</item>
+        <item>09 - September</item>
+        <item>10 - October</item>
+        <item>11 - November</item>
+        <item>12 - December</item>
+    </string-array>
+
+</resources>

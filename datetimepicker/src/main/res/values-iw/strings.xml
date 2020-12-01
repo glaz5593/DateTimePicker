@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">DateTimePicker</string>
+
+    <string name="setDay">בחר יום</string>
+    <string name="setMonth">בחר חודש</string>
+    <string name="setYear">בחר שנה</string>
+    <string name="setHour">בחר שעה</string>
+    <string name="setMinute">בחר דקה</string>
+
+    <string name = "cancel">בטל</string>
+    <string name = "save">שמור</string>
+    <string name = "please_select_day">אנא בחר יום</string>
+    <string name = "please_select_month">אנא בחר חודש</string>
+    <string name = "please_select_year">אנא שנה שנה</string>
+    <string name = "please_select_hour">אנא בחר שעה</string>
+    <string name = "please_select_minute">אנא בחר דקה</string>
+    <string name = "wronge_date">תאריך שגוי</string>
+    <string name = "unexeptedProplame">תכנית לא מקובלת</string>
+    <string name = "selectDateTime">בחר תאריך ושעה</string>
+    <string name = "selectTime">בחר זמן</string>
+    <string name = "selectDate">בחר תאריך</string>
+    <string name="year">שנה</string>
+    <string name="month">חודש</string>
+    <string name="day">יום</string>
+    <string name="hour">שעה</string>
+    <string name="minute">דקה</string>
+    
+    <string-array name="months">
+        <item>01 - ינואר</item>
+        <item>02 - פברואר</item>
+        <item>03 - מרץ</item>
+        <item>04 - אפריל</item>
+        <item>05 - מאי</item>
+        <item>06 - יוני</item>
+        <item>07 - יולי</item>
+        <item>08 - אוגוסט</item>
+        <item>09 - ספטמבר</item>
+        <item>10 - אוקטובר</item>
+        <item>11 - נובמבר</item>
+        <item>12 - דצמבר</item>
+    </string-array>
+
+</resources>

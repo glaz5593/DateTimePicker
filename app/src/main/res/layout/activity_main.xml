@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:onClick="OnDateTimeClick"
+        android:layout_margin="4dp"
+        android:background="#f0f0f0"
+        android:orientation="vertical"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DateTime"
+            android:textStyle="bold"
+            android:textColor="#404040" />
+
+        <il.co.guzon.datetimepicker.example.FontFitTextView
+            android:id="@+id/tv_dateTime"
+            android:layout_width="match_parent"
+            android:layout_margin="4dp"
+            android:layout_height="match_parent"
+            android:text="01/01/2020 08:00"
+            android:gravity="center"
+            android:textColor="#404040" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:onClick="OnTimeClick"
+        android:layout_margin="4dp"
+        android:background="#f0f0f0"
+        android:orientation="vertical"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textStyle="bold"
+            android:textColor="#404040" />
+        <il.co.guzon.datetimepicker.example.FontFitTextView
+            android:layout_width="match_parent"
+            android:layout_margin="4dp"
+            android:id="@+id/tv_time"
+            android:layout_height="match_parent"
+            android:text="01/01/2020 08:00"
+            android:gravity="center"
+            android:textColor="#404040" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:onClick="OnDateClick"
+        android:layout_margin="4dp"
+        android:background="#f0f0f0"
+        android:orientation="vertical"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textStyle="bold"
+            android:textColor="#404040" />
+        <il.co.guzon.datetimepicker.example.FontFitTextView
+            android:layout_width="match_parent"
+            android:layout_margin="4dp"
+            android:layout_height="match_parent"
+            android:text="01/01/2020 08:00"
+            android:id="@+id/tv_date"
+            android:gravity="center"
+            android:textColor="#404040" />
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="60dp">
+        <RadioButton
+            android:id="@+id/cb_mdy"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="month/day/year"
+            android:layout_height="match_parent"/>
+
+        <RadioButton
+            android:id="@+id/cb_dmy"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="day/month/year"
+            android:layout_height="match_parent"/>
+    </RadioGroup>
+
+</LinearLayout>
