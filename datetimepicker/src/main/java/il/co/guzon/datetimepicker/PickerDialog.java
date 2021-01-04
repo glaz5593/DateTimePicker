@@ -320,6 +320,7 @@ public class PickerDialog extends DialogFragment {
                     break;
             }
 
+
             tv_explation.setText(explationResId);
             DateAdapter adapter = new DateAdapter(getActivity(), list);
             gv_items.setNumColumns(numColumns);
