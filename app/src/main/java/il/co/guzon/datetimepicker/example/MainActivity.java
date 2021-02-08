@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public static SimpleDateFormat format_dd_MM_yyyy_HH_mm = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
     public static SimpleDateFormat format_MM_dd_yyyy_HH_mm = new SimpleDateFormat("MM/dd/yyyy HH:mm", Locale.ENGLISH);
 
-    Data data;
+    static Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +34,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         ((RadioButton) findViewById(R.id.cb_dmy)).setOnCheckedChangeListener(this);
     }
 
-//    public void OnDateTimeClick(View view) {
-//        PickerDialog.show(this,E_DateTimeType.DateTime,data.dmy,data.dateTime,R.string.selectDateTime,this);
-//    }
-//
-//    public void OnDateClick(View view) {
-//        PickerDialog.show(this,E_DateTimeType.DateOnly,data.dmy,data.date,R.string.selectDate,this);
-//    }
-//
-//    public void OnTimeClick(View view) {
-//        PickerDialog.show(this,E_DateTimeType.TimeOnly,data.dmy,data.time,R.string.selectTime,this);
-//    }
 public void OnDateTimeClick(View view) {
     PickerDialog.show(this,E_DateTimeType.DateTime,data.dmy ? E_DateFormat.DayMonthYear :  E_DateFormat.MonthDayYear ,data.dateTime,R.string.selectDateTime,this);
 }
@@ -59,7 +48,7 @@ public void OnDateTimeClick(View view) {
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean change) {
         data.dmy = change && compoundButton.getId() == R.id.cb_dmy;
-        data.mdy = change && compoundButton.getId() == R.id.cb_dmy;
+        data.mdy = change && compoundButton.getId() == R.id.cb_mdy;
     }
 
     @Override
@@ -89,7 +78,7 @@ public void OnDateTimeClick(View view) {
         Date date;
         Date time;
         boolean mdy;
-        boolean dmy;
+        boolean dmy=true;
     }
 
     @Override
@@ -103,7 +92,7 @@ public void OnDateTimeClick(View view) {
 
     private void initUI() {
         ((RadioButton) findViewById(R.id.cb_mdy)).setChecked(data.mdy);
-        ((RadioButton) findViewById(R.id.cb_dmy)).setChecked(data.mdy);
+        ((RadioButton) findViewById(R.id.cb_dmy)).setChecked(data.dmy);
 
         ((TextView) findViewById(R.id.tv_date)).setText(getString(data.date, E_DateTimeType.DateOnly));
         ((TextView) findViewById(R.id.tv_dateTime)).setText(getString(data.dateTime, E_DateTimeType.DateTime));

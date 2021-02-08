@@ -23,28 +23,31 @@
         android:layoutDirection="ltr"
         android:layout_height="50dp">
 
+        <TextView
+            android:id="@+id/tv_hour"
+            android:textSize="12dp"
+            android:textColorHint="@color/gray"
+            android:text="@string/hour"
+            android:textColor="@color/red_dark"
+            android:background="@drawable/gray"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
             <TextView
                 android:id="@+id/tv_minute"
                 android:textSize="12dp"
                 android:textColor="@color/red_dark"
                 android:gravity="center"
+                android:textColorHint="@color/gray"
                 android:background="@drawable/gray"
                 android:text="@string/minute"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="match_parent"/>
 
-            <TextView
-                android:id="@+id/tv_hour"
-                android:textSize="12dp"
-                android:textColorHint="@color/gray"
-                android:text="@string/hour"
-                android:textColor="@color/red_dark"
-                android:background="@drawable/gray"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="match_parent"/>
+
 
             <TextView
                 android:id="@+id/tv_d1"
@@ -129,36 +132,34 @@
         <TextView
             android:id="@+id/btn_ok"
             android:layout_width="wrap_content"
-            android:text="@string/save"
-            android:padding="14dp"
-            android:textSize="22dp"
-            android:gravity="center"
-            android:textColor="@color/blue"
+            android:layout_height="match_parent"
             android:background="@null"
-            android:layout_height="match_parent"  />
-
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="@string/save"
+            android:textColor="@color/blue"
+            android:textSize="14dp" />
 
 
         <TextView
             android:id="@+id/btn_back"
-            android:textColor="@color/blue"
-            android:background="@null"
-            android:padding="14dp"
-            android:gravity="center"
-            android:textSize="22dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="14dp"
             android:text="@string/cancel"
-            />
+            android:textColor="@color/blue"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="match_parent"
-            android:gravity="center|end"
-            android:textSize="24dp"
-            android:textColor="#aaaaaa"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="match_parent"/>
+            android:gravity="center|end"
+            android:textColor="#aaaaaa"
+            android:textSize="18dp" />
 
     </LinearLayout>
 </LinearLayout>

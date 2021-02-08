@@ -90,6 +90,8 @@
         android:layout_height="60dp">
         <RadioButton
             android:id="@+id/cb_mdy"
+            android:layout_margin="5dp"
+            android:background="#f5f5ff"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:text="month/day/year"
@@ -98,6 +100,8 @@
         <RadioButton
             android:id="@+id/cb_dmy"
             android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:background="#f5fff5"
             android:layout_weight="1"
             android:text="day/month/year"
             android:layout_height="match_parent"/>

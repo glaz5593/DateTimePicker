@@ -92,16 +92,23 @@ public class DateObject {
 
     public String toHtmlString(E_DateFormat dateFormat) {
         StringBuilder builder=new StringBuilder();
-        if(type!= E_DateTimeType.DateOnly){
-            if(minute==null){
-                builder.append("00:");
-            }else{
-                builder.append(DateUtils.getHTMLText_black(String.format("%02d",minute) + ":"));
-            }
+        if(type != E_DateTimeType.DateOnly){
             if(hour==null){
                 builder.append("00");
             }else{
                 builder.append(DateUtils.getHTMLText_black(String.format("%02d",hour)));
+            }
+
+            if(hour==null && minute==null){
+                builder.append(":");
+            }else{
+                builder.append(DateUtils.getHTMLText_black(":"));
+            }
+
+            if(minute==null){
+                builder.append("00");
+            }else{
+                builder.append(DateUtils.getHTMLText_black(String.format("%02d",minute)));
             }
         }
 
@@ -109,20 +116,34 @@ public class DateObject {
             builder.append(" ");
         }
 
-        if(type!= E_DateTimeType.TimeOnly){
+        if(type != E_DateTimeType.TimeOnly){
             Integer d1=dateFormat ==E_DateFormat.DayMonthYear? day : month;
             Integer d2=dateFormat ==E_DateFormat.DayMonthYear? month : day;
 
             if(d1==null){
-                builder.append("00/");
+                builder.append("00");
             }else{
-                builder.append(DateUtils.getHTMLText_black(String.format("%02d",d1) + "/"));
+                builder.append(DateUtils.getHTMLText_black(String.format("%02d",d1)));
             }
+
+            if(d1==null && d2==null){
+                builder.append("/");
+            }else{
+                builder.append(DateUtils.getHTMLText_black("/"));
+            }
+
             if(d2==null){
-                builder.append("00/");
+                builder.append("00");
             }else{
-                builder.append(DateUtils.getHTMLText_black(String.format("%02d",d2) + "/"));
+                builder.append(DateUtils.getHTMLText_black(String.format("%02d",d2)));
             }
+
+            if(d2==null && year==null){
+                builder.append("/");
+            }else{
+                builder.append(DateUtils.getHTMLText_black("/"));
+            }
+
             if(year==null){
                 builder.append("0000");
             }else{

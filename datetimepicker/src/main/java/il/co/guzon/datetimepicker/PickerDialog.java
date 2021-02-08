@@ -33,6 +33,7 @@ public class PickerDialog extends DialogFragment {
     E_DateFormat dateFormat;
     e_step currentStep;
     int startYear;
+    int numbersInLine=6;
 
     public enum e_step {year, month, day, hour, minute}
 
@@ -55,7 +56,7 @@ public class PickerDialog extends DialogFragment {
         if(type == E_DateTimeType.DateOnly){
             this.currentStep =(dateFormat == E_DateFormat.DayMonthYear ? e_step.day : e_step.month);
         }else{
-            this.currentStep =  e_step.minute;
+            this.currentStep =  e_step.hour;
         }
     }
 
@@ -76,20 +77,22 @@ public class PickerDialog extends DialogFragment {
     }
 
     private void initList() {
-        listDays = new ArrayList<>();
-        for (int i = 1; i < 32; i++) {
-            listDays.add(i + "");
-        }
-
         listMonths = new ArrayList<>();
-        for (String s : getResources().getStringArray(R.array.months)) {
-            listMonths.add(s);
+        String[] array = getResources().getStringArray(R.array.months);
+        for (int i=0;i<array.length;i+=2) {
+            listMonths.add(array[i+1]);
+            listMonths.add(array[i]);
         }
 
         startYear  = DateUtils.getYear(new Date());
         listYears = new ArrayList<>();
         for (int i = startYear; i > 1899; i--) {
             listYears.add(i + "");
+        }
+
+        listDays = new ArrayList<>();
+        for (int i = 1; i < 32; i++) {
+             listDays.add(i + "");
         }
 
         listHours = new ArrayList<>();
@@ -102,6 +105,35 @@ public class PickerDialog extends DialogFragment {
         for (int i = 0; i < 60; i++) {
             String s = (i < 10 ? "0" : "") + i;
             listMinutes.add(s);
+        }
+
+        swapByNumbersInLine(listDays);
+        swapByNumbersInLine(listHours);
+        swapByNumbersInLine(listMinutes);
+    }
+
+    private void swapByNumbersInLine(ArrayList<String> values) {
+        ArrayList<ArrayList<String>> lists=new ArrayList<>() ;
+        ArrayList<String> list=new ArrayList<>() ;
+
+        for(String s : values){
+            list.add(s);
+
+            if(list.size()==numbersInLine){
+                lists.add(list);
+                list=new ArrayList<>();
+            }
+        }
+
+        if(list.size()>0){
+            lists.add(list);
+        }
+
+        values.clear();
+        for(ArrayList<String> lst:lists){
+            for(int i =lst.size()-1; i>=0;i--){
+                values.add(lst.get(i));
+            }
         }
     }
 
@@ -209,31 +241,31 @@ public class PickerDialog extends DialogFragment {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (currentStep) {
                 case day: {
-                    dateObject.day = position + 1;
+                    dateObject.day = getInt(listDays.get(position));
                     setStep(dateFormat == E_DateFormat.DayMonthYear ? e_step.month : e_step.year);
                     break;
                 }
                 case month: {
-                    dateObject.month = position + 1;
+                    dateObject.month = position + (((position + 1) % 2) * 2);
                     setStep(dateFormat == E_DateFormat.DayMonthYear ? e_step.year : e_step.day);
                     break;
                 }
                 case year: {
-                    dateObject.year = startYear - position;
+                    dateObject.year = getInt(listYears.get(position));
                     finish();
                     return;
                 }
-                case minute: {
-                    dateObject.minute= position;
-                    setStep(e_step.hour);
+                case hour: {
+                    dateObject.hour = getInt(listHours.get(position));
+                    setStep(e_step.minute);
                     break;
                 }
-                case hour: {
-                    dateObject.hour = position;
-                    if(dateObject.type==E_DateTimeType.TimeOnly){
+                case minute: {
+                    dateObject.minute = getInt(listMinutes.get(position));
+                    if (dateObject.type == E_DateTimeType.TimeOnly) {
                         finish();
                         return;
-                    }else{
+                    } else {
                         setStep(dateFormat == E_DateFormat.DayMonthYear ? e_step.day : e_step.month);
                     }
                     break;
@@ -305,17 +337,17 @@ public class PickerDialog extends DialogFragment {
                     break;
                 case day:
                     explationResId = R.string.setDay;
-                    numColumns = 6;
+                    numColumns = numbersInLine;
                     list = listDays;
                     break;
                 case hour:
                     explationResId = R.string.setHour;
-                    numColumns = 6;
+                    numColumns = numbersInLine;
                     list = listHours;
                     break;
                 case minute:
                     explationResId = R.string.setMinute;
-                    numColumns = 4;
+                    numColumns = numbersInLine;
                     list = listMinutes;
                     break;
             }
@@ -338,6 +370,15 @@ public class PickerDialog extends DialogFragment {
             tv_title.setText(title);
             tv_title.setVisibility(tv_title.length() == 0 ? View.GONE : View.VISIBLE);
         }
+    }
+
+    private int getInt(String s) {
+        try {
+            return  Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public static int getColor(Context context, int resId) {
